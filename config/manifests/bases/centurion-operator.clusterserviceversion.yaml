@@ -15,7 +15,7 @@ spec:
       kind: EventListener
       name: eventlisteners.snf.ccs.sniff-n-fix.com
       version: v1
-  description: Atmos Centurion Operator for performing actions based on Datadog Monitors
+  description: Atmos snf Operator for performing actions based on Datadog Monitors
   displayName: snf
   icon:
   - base64data: ""
