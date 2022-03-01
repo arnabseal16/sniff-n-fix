@@ -4,7 +4,7 @@ projectName: snf-operator
 repo: ccs.sniff-n-fix.com/oort
 resources:
 - crdVersion: v1
-  group: centurion
+  group: snf
   kind: EventListener
   version: v1
 version: 3-alpha
