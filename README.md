@@ -16,4 +16,4 @@ DataDog sends a payload with specific fields to a webhook/api endpoint to create
 
 ### HLD: ###
 
-![Screenshot](resources/Sniff-n-Fix_HLD.svg)
+![Screenshot](resources/Sniff-n-Fix_HLD.png)
