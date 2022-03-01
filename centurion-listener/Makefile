@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= 996752749769.dkr.ecr.us-west-2.amazonaws.com/centurion-listener:latest
+IMG ?= 996752749769.dkr.ecr.us-west-2.amazonaws.com/snf-listener:latest
 NAMESPACE= avondale
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)

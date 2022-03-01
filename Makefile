@@ -26,10 +26,10 @@ BUNDLE_METADATA_OPTS ?= $(BUNDLE_CHANNELS) $(BUNDLE_DEFAULT_CHANNEL)
 
 # BUNDLE_IMG defines the image:tag used for the bundle. 
 # You can use it as an arg. (E.g make bundle-build BUNDLE_IMG=<some-registry>/<project-name-bundle>:<tag>)
-BUNDLE_IMG ?= centurion-operator-bundle:$(VERSION)
+BUNDLE_IMG ?= snf-operator-bundle:$(VERSION)
 
 # Image URL to use all building/pushing image targets
-IMG ?= 996752749769.dkr.ecr.us-west-2.amazonaws.com/centurion-operator:latest
+IMG ?= 996752749769.dkr.ecr.us-west-2.amazonaws.com/snf-operator:latest
 # Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
 CRD_OPTIONS ?= "crd:trivialVersions=true,preserveUnknownFields=false"
 
@@ -79,7 +79,7 @@ undeploy:
 
 # Generate manifests e.g. CRD, RBAC etc.
 manifests: controller-gen
-	$(CONTROLLER_GEN) $(CRD_OPTIONS) rbac:roleName=centurion-role webhook paths="./..." output:crd:artifacts:config=config/crd/bases
+	$(CONTROLLER_GEN) $(CRD_OPTIONS) rbac:roleName=snf-role webhook paths="./..." output:crd:artifacts:config=config/crd/bases
 
 # Generate the manifests required for deployment
 deployment-manifests: manifests kustomize

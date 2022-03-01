@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     control-plane: controller-manager
-  name: centurion-operator-controller-manager-metrics-service
+  name: snf-operator-controller-manager-metrics-service
 spec:
   ports:
   - name: https

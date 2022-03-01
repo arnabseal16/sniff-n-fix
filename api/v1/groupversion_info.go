@@ -14,9 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Package v1 contains API Schema definitions for the centurion v1 API group
+// Package v1 contains API Schema definitions for the snf v1 API group
 // +kubebuilder:object:generate=true
-// +groupName=centurion.ccs.sniff-n-fix.com
+// +groupName=snf.ccs.sniff-n-fix.com
 package v1
 
 import (
@@ -24,12 +24,12 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/scheme"
 )
 
-const GroupName = "centurion.ccs.sniff-n-fix.com"
+const GroupName = "snf.ccs.sniff-n-fix.com"
 const GroupVersion = "v1"
 
 var (
 	// GroupVersion is group version used to register these objects
-	SchemeGroupVersion = schema.GroupVersion{Group: "centurion.ccs.sniff-n-fix.com", Version: GroupVersion}
+	SchemeGroupVersion = schema.GroupVersion{Group: "snf.ccs.sniff-n-fix.com", Version: GroupVersion}
 
 	// SchemeBuilder is used to add go types to the GroupVersionKind scheme
 	SchemeBuilder = &scheme.Builder{GroupVersion: SchemeGroupVersion}

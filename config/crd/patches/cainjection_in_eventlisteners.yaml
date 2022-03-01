@@ -4,4 +4,4 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     cert-manager.io/inject-ca-from: $(CERTIFICATE_NAMESPACE)/$(CERTIFICATE_NAME)
-  name: eventlisteners.centurion.ccs.sniff-n-fix.com
+  name: eventlisteners.snf.ccs.sniff-n-fix.com

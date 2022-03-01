@@ -9,7 +9,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	centurionv1 "ccs.sniff-n-fix.com/centurion-operator/api/v1"
+	snfv1 "ccs.sniff-n-fix.com/snf-operator/api/v1"
 )
 
 // EventListenerReconciler reconciles a EventListener object
@@ -19,9 +19,9 @@ type EventListenerReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=centurion.ccs.sniff-n-fix.com,resources=eventlisteners,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=centurion.ccs.sniff-n-fix.com,resources=eventlisteners/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=centurion.ccs.sniff-n-fix.com,resources=eventlisteners/finalizers,verbs=update
+// +kubebuilder:rbac:groups=snf.ccs.sniff-n-fix.com,resources=eventlisteners,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=snf.ccs.sniff-n-fix.com,resources=eventlisteners/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=snf.ccs.sniff-n-fix.com,resources=eventlisteners/finalizers,verbs=update
 // +kubebuilder:rbac:groups="",resources=pods,verbs=delete
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
@@ -37,7 +37,7 @@ func (r *EventListenerReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 	log := r.Log.WithValues("eventlistener", req.NamespacedName)
 
 	// Fetch EventListener
-	var listener centurionv1.EventListener
+	var listener snfv1.EventListener
 	err := client.IgnoreNotFound(r.Get(ctx, req.NamespacedName, &listener))
 	if err != nil {
 		log.Error(err, "unable to fetch EventListeners")
@@ -66,6 +66,6 @@ func (r *EventListenerReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 // SetupWithManager sets up the controller with the Manager.
 func (r *EventListenerReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&centurionv1.EventListener{}).
+		For(&snfv1.EventListener{}).
 		Complete(r)
 }

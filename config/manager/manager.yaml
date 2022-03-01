@@ -2,25 +2,25 @@ apiVersion: v1
 kind: Namespace
 metadata:
   labels:
-    control-plane: centurion
-  name: centurion
+    control-plane: snf
+  name: snf
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: centurion
-  namespace: centurion
+  name: snf
+  namespace: snf
   labels:
-    control-plane: centurion
+    control-plane: snf
 spec:
   selector:
     matchLabels:
-      control-plane: centurion
+      control-plane: snf
   replicas: 1
   template:
     metadata:
       labels:
-        control-plane: centurion
+        control-plane: snf
     spec:
       securityContext:
         runAsUser: 65532

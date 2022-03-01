@@ -1,4 +1,4 @@
-module ccs.sniff-n-fix.com/centurion-operator
+module ccs.sniff-n-fix.com/snf-operator
 
 go 1.15
 

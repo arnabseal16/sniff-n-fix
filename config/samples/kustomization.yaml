@@ -1,4 +1,4 @@
 ## Append samples you want in your CSV to this file as resources ##
 resources:
-- centurion_v1_eventlistener.yaml
+- snf_v1_eventlistener.yaml
 # +kubebuilder:scaffold:manifestskustomizesamples

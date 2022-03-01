@@ -32,8 +32,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	centurionv1 "ccs.sniff-n-fix.com/centurion-operator/api/v1"
-	"ccs.sniff-n-fix.com/centurion-operator/controllers"
+	snfv1 "ccs.sniff-n-fix.com/snf-operator/api/v1"
+	"ccs.sniff-n-fix.com/snf-operator/controllers"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -45,7 +45,7 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(centurionv1.AddToScheme(scheme))
+	utilruntime.Must(snfv1.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 

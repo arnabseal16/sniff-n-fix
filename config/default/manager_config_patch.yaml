@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: centurion
-  namespace: centurion
+  name: snf
+  namespace: snf
 spec:
   template:
     spec:
@@ -11,10 +11,10 @@ spec:
         args:
         - "--config=controller_manager_config.yaml"
         volumeMounts:
-        - name: centurion-config
+        - name: snf-config
           mountPath: /controller_manager_config.yaml
           subPath: controller_manager_config.yaml
       volumes:
-      - name: centurion-config
+      - name: snf-config
         configMap:
-          name: centurion-config
+          name: snf-config

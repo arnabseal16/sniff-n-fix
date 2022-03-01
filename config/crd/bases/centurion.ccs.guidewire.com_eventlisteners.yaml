@@ -6,9 +6,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.4.1
   creationTimestamp: null
-  name: eventlisteners.centurion.ccs.sniff-n-fix.com
+  name: eventlisteners.snf.ccs.sniff-n-fix.com
 spec:
-  group: centurion.ccs.sniff-n-fix.com
+  group: snf.ccs.sniff-n-fix.com
   names:
     kind: EventListener
     listKind: EventListenerList

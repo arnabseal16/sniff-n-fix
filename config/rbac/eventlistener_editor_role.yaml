@@ -2,10 +2,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: centurion-eventlistener-editor-role
+  name: snf-eventlistener-editor-role
 rules:
 - apiGroups:
-  - centurion.ccs.sniff-n-fix.com
+  - snf.ccs.sniff-n-fix.com
   resources:
   - eventlisteners
   verbs:
@@ -17,7 +17,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - centurion.ccs.sniff-n-fix.com
+  - snf.ccs.sniff-n-fix.com
   resources:
   - eventlisteners/status
   verbs:

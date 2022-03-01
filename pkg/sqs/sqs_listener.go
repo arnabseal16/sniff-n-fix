@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	centurionv1 "ccs.sniff-n-fix.com/centurion-operator/api/v1"
+	snfv1 "ccs.sniff-n-fix.com/snf-operator/api/v1"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials/stscreds"
 	"github.com/aws/aws-sdk-go-v2/service/sqs"
@@ -205,20 +205,20 @@ func DeleteMessage(rHandle *string, queueName *string) error {
 	return err
 }
 
-func CreateEventListener(eventMessage EventMessage) (*centurionv1.EventListener, error) {
+func CreateEventListener(eventMessage EventMessage) (*snfv1.EventListener, error) {
 	labels, err := getLabels()
 	if err != nil {
 		return nil, err
 	}
 
-	event := &centurionv1.EventListener{}
+	event := &snfv1.EventListener{}
 	event.ObjectMeta.Namespace = eventMessage.Namespace
 	event.ObjectMeta.Name = eventMessage.Target
 	event.ObjectMeta.Labels = labels
-	event.Spec.Actions = []centurionv1.EventListenerAction{
+	event.Spec.Actions = []snfv1.EventListenerAction{
 		{
-			ActionType:    centurionv1.ActionType(eventMessage.Action),
-			ResourceType:  centurionv1.ResourceType(eventMessage.Type),
+			ActionType:    snfv1.ActionType(eventMessage.Action),
+			ResourceType:  snfv1.ResourceType(eventMessage.Type),
 			Target:        eventMessage.Target,
 			ReceiptHandle: eventMessage.ReceiptHandle,
 		},
@@ -227,10 +227,10 @@ func CreateEventListener(eventMessage EventMessage) (*centurionv1.EventListener,
 	return event, nil
 }
 
-func UpsertEventListener(c client.Client, eventListener *centurionv1.EventListener) (*centurionv1.EventListener, error) {
+func UpsertEventListener(c client.Client, eventListener *snfv1.EventListener) (*snfv1.EventListener, error) {
 	ctx := context.Background()
 	key := client.ObjectKeyFromObject(eventListener)
-	existing := &centurionv1.EventListener{}
+	existing := &snfv1.EventListener{}
 
 	if err := c.Get(ctx, key, existing); err != nil {
 		if !errors.IsNotFound(err) {

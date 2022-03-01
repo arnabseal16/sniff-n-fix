@@ -14,4 +14,4 @@ data:
       resourceName: 523db2a5.ccs.sniff-n-fix.com
 kind: ConfigMap
 metadata:
-  name: centurion-operator-manager-config
+  name: snf-operator-manager-config

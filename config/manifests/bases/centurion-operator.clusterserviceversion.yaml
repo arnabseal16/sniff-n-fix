@@ -4,7 +4,7 @@ metadata:
   annotations:
     alm-examples: '[]'
     capabilities: Basic Install
-  name: centurion-operator.v0.0.0
+  name: snf-operator.v0.0.0
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
@@ -13,10 +13,10 @@ spec:
     - description: EventListener is the Schema for the eventlisteners API
       displayName: Event Listener
       kind: EventListener
-      name: eventlisteners.centurion.ccs.sniff-n-fix.com
+      name: eventlisteners.snf.ccs.sniff-n-fix.com
       version: v1
   description: Atmos Centurion Operator for performing actions based on Datadog Monitors
-  displayName: centurion
+  displayName: snf
   icon:
   - base64data: ""
     mediatype: ""
@@ -35,11 +35,11 @@ spec:
     type: AllNamespaces
   keywords:
   - sniff-n-fix
-  - centurion
+  - snf
   - atmos
   links:
   - name: Event Operator
-    url: https://centurion-operator.domain
+    url: https://snf-operator.domain
   maintainers:
   - email: thnelson@sniff-n-fix.com'
     name: '''Thomas Nelson'

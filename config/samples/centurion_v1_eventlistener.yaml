@@ -1,4 +1,4 @@
-apiVersion: centurion.ccs.sniff-n-fix.com/v1
+apiVersion: snf.ccs.sniff-n-fix.com/v1
 kind: EventListener
 metadata:
   name: "ingress-kong-5cb6bb595-kmbhr"

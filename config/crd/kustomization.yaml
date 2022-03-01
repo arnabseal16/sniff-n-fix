@@ -2,7 +2,7 @@
 # since it depends on service name and namespace that are out of this kustomize package.
 # It should be run by config/default
 resources:
-- bases/centurion.ccs.sniff-n-fix.com_eventlisteners.yaml
+- bases/snf.ccs.sniff-n-fix.com_eventlisteners.yaml
 # +kubebuilder:scaffold:crdkustomizeresource
 
 patchesStrategicMerge:

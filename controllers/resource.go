@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"strings"
 
-	centurionv1 "ccs.sniff-n-fix.com/centurion-operator/api/v1"
+	snfv1 "ccs.sniff-n-fix.com/snf-operator/api/v1"
 	"k8s.io/apimachinery/pkg/api/meta"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-func (r *EventListenerReconciler) newResource(resourceType centurionv1.ResourceType, name, namespace string) (Resource, error) {
+func (r *EventListenerReconciler) newResource(resourceType snfv1.ResourceType, name, namespace string) (Resource, error) {
 	gvk, err := getGroupVersionKind(resourceType)
 	if err != nil {
 		return nil, err
@@ -42,7 +42,7 @@ func getType(resource Resource) metav1.Type {
 	return t
 }
 
-func getGroupVersionKind(resourceType centurionv1.ResourceType) (schema.GroupVersionKind, error) {
+func getGroupVersionKind(resourceType snfv1.ResourceType) (schema.GroupVersionKind, error) {
 	registeredGvks := map[string]string{
 		"Pod":        "v1",
 		"Deployment": "v1",
