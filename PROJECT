@@ -1,6 +1,6 @@
 domain: ccs.sniff-n-fix.com
 layout: go.kubebuilder.io/v3
-projectName: centurion-operator
+projectName: snf-operator
 repo: ccs.sniff-n-fix.com/oort
 resources:
 - crdVersion: v1
