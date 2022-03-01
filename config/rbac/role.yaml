@@ -1,0 +1,40 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: centurion-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - delete
+- apiGroups:
+  - centurion.ccs.sniff-n-fix.com
+  resources:
+  - eventlisteners
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - centurion.ccs.sniff-n-fix.com
+  resources:
+  - eventlisteners/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - centurion.ccs.sniff-n-fix.com
+  resources:
+  - eventlisteners/status
+  verbs:
+  - get
+  - patch
+  - update

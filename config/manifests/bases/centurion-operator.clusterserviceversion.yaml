@@ -1,0 +1,49 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+  name: centurion-operator.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: EventListener is the Schema for the eventlisteners API
+      displayName: Event Listener
+      kind: EventListener
+      name: eventlisteners.centurion.ccs.sniff-n-fix.com
+      version: v1
+  description: Atmos Centurion Operator for performing actions based on Datadog Monitors
+  displayName: centurion
+  icon:
+  - base64data: ""
+    mediatype: ""
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - sniff-n-fix
+  - centurion
+  - atmos
+  links:
+  - name: Event Operator
+    url: https://centurion-operator.domain
+  maintainers:
+  - email: thnelson@sniff-n-fix.com'
+    name: '''Thomas Nelson'
+  maturity: alpha
+  provider:
+    name: Sniff-n-Fix
+  version: 0.0.0

@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: centurion
+  name: centurion
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centurion
+  namespace: centurion
+  labels:
+    control-plane: centurion
+spec:
+  selector:
+    matchLabels:
+      control-plane: centurion
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        control-plane: centurion
+    spec:
+      securityContext:
+        runAsUser: 65532
+      containers:
+      - command:
+        - /operator
+        args:
+        - --leader-elect
+        image: controller:latest
+        name: operator
+        securityContext:
+          allowPrivilegeEscalation: false
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: 100m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 20Mi
+      - command:
+        - /listener
+        args:
+        - --queuename=atmos-scratch-rohan-datadog-events-queue
+        image: controller:latest
+        name: listener
+        env:
+        - name: AWS_REGION
+          value: "default"
+        - name: AWS_ROLE_ARN
+          value: "default"
+        securityContext:
+          allowPrivilegeEscalation: false
+        resources:
+          limits:
+            cpu: 100m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 20Mi
+      terminationGracePeriodSeconds: 10

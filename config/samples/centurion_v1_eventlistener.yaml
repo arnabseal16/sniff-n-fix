@@ -1,0 +1,10 @@
+apiVersion: centurion.ccs.sniff-n-fix.com/v1
+kind: EventListener
+metadata:
+  name: "ingress-kong-5cb6bb595-kmbhr"
+  namespace: "atmos-system"
+spec:
+  actions:
+    - action_type: "delete"
+      resource_type: "pod"
+

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centurion
+  namespace: centurion
+spec:
+  template:
+    spec:
+      containers:
+      - name: operator
+        args:
+        - "--config=controller_manager_config.yaml"
+        volumeMounts:
+        - name: centurion-config
+          mountPath: /controller_manager_config.yaml
+          subPath: controller_manager_config.yaml
+      volumes:
+      - name: centurion-config
+        configMap:
+          name: centurion-config

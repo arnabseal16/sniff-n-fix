@@ -1,0 +1,24 @@
+# permissions for end users to edit eventlisteners.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: centurion-eventlistener-editor-role
+rules:
+- apiGroups:
+  - centurion.ccs.sniff-n-fix.com
+  resources:
+  - eventlisteners
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - centurion.ccs.sniff-n-fix.com
+  resources:
+  - eventlisteners/status
+  verbs:
+  - get
