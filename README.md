@@ -5,7 +5,7 @@
 Written primarily in Go utilizing go-client, snf (sniff-n-fix) is composed to three main moving parts:
 
 - **DataDog** : Creates a messages to the SQS queue for the events to trigger (Can be substituted with any other observability solution)
-- **EventListener** : Listens the SQS for messages, fulfilled by the Datadog Monitors (Cam be subtituted with any other observability solutions)
+- **EventListener** : Listens the SQS for messages, fulfilled by the Datadog Monitors (Can be subtituted with any other observability solutions)
 - **Operator CRD** : Which works to enable and apply the actions based on the Action Objects sent by the **EventListener** Deployment
 
 
